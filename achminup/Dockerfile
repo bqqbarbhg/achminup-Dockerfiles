@@ -1,9 +1,23 @@
-FROM nginx
-COPY own_nginx.conf /etc/nginx/nginx.conf
+FROM octohost/php5:5.5
 
-RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.1.tar.gz \
-    | tar -zxC /achrails --strip-components=1
+RUN dpkg-divert --local --rename --add /sbin/initctl
+RUN ln -s /bin/true /sbin/initctl
 
-ADD . /achrails
-COPY /achrails /user/share/nginx/html
+ADD . /srv/www
 
+RUN mkdir /srv/www/achminup/
+
+RUN apt-get update && apt-get install -y curl
+
+RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.2.tar.gz \
+    | tar -zxC /srv/www/achminup --strip-components=1
+
+COPY ./default /etc/nginx/sites-available/default
+
+RUN echo 'upload_max_filesize = 200M' >> /etc/php5/fpm/php.ini
+
+RUN chmod -R 777 /srv/www/achminup/
+
+EXPOSE 80
+
+CMD service php5-fpm start && nginx

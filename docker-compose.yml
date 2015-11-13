@@ -1,3 +1,5 @@
 achminup:
     container_name: achminup
     image: bqqbarbhg/achminup
+    env_file:
+        - achrails.env

@@ -9,7 +9,7 @@ RUN mkdir /srv/www/achminup/
 
 RUN apt-get update && apt-get install -y curl
 
-RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.2.tar.gz \
+RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.3.tar.gz \
     | tar -zxC /srv/www/achminup --strip-components=1
 
 COPY ./default /etc/nginx/sites-available/default

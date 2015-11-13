@@ -9,7 +9,7 @@ RUN mkdir /srv/www/achminup/
 
 RUN apt-get update && apt-get install -y curl
 
-RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.3.tar.gz \
+RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.4.tar.gz \
     | tar -zxC /srv/www/achminup --strip-components=1
 
 COPY ./default /etc/nginx/sites-available/default
@@ -20,4 +20,4 @@ RUN chmod -R 777 /srv/www/achminup/
 
 EXPOSE 80
 
-CMD service php5-fpm start && nginx
+CMD ["bash", "start-achminup.sh"]

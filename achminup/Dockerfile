@@ -20,4 +20,6 @@ RUN chmod -R 777 /srv/www/achminup/
 
 EXPOSE 80
 
+COPY start-achminup.sh start-achminup.sh
+
 CMD ["bash", "start-achminup.sh"]

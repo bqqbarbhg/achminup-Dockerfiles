@@ -20,5 +20,10 @@ server {
         fastcgi_index index.php;
         include fastcgi_params;
     }
+
+	location ~ /temp {
+		deny all;
+		return 404;
+	}
 	
 }

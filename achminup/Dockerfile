@@ -9,7 +9,7 @@ RUN mkdir /srv/www/achminup/
 
 RUN apt-get update && apt-get install -y curl exiftool libav-tools
 
-RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.7.tar.gz \
+RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.0.8.tar.gz \
     | tar -zxC /srv/www/achminup --strip-components=1
 
 COPY ./default /etc/nginx/sites-available/default

@@ -21,9 +21,16 @@ server {
         include fastcgi_params;
     }
 
-	location ~ /temp {
+	location /temp/ {
 		deny all;
 		return 404;
 	}
-	
+
+	location /videos/ {
+		root /var/achminup-uploads/videos/
+	}
+	location /thumbnails/ {
+		root /var/achminup-uploads/thumbnails/
+	}
+
 }

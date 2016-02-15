@@ -2,7 +2,7 @@ echo "<?php \$base_url = '$LAYERS_API_URI' . 'achminup/';" > /srv/www/achminup/s
 
 service php5-fpm start
 
-/srv/www/achminup/watch.sh &
+/srv/www/achminup/achminup &
 
 exec nginx
 

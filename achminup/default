@@ -21,16 +21,16 @@ server {
         include fastcgi_params;
     }
 
-	location /temp/ {
+	location ~ \.owner\.txt$ {
 		deny all;
 		return 404;
 	}
 
 	location /videos/ {
-		root /var/achminup-uploads;
+		root /var/achminup-uploads/data;
 	}
 	location /thumbnails/ {
-		root /var/achminup-uploads;
+		root /var/achminup-uploads/data;
 	}
 
 }

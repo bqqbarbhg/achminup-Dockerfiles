@@ -7,7 +7,7 @@ ADD . /srv/www
 
 RUN mkdir /srv/www/achminup/
 
-RUN apt-get update && apt-get install -y curl exiftool libav-tools go
+RUN apt-get update && apt-get install -y curl exiftool libav-tools golang
 
 RUN curl -SL https://github.com/bqqbarbhg/achminup/archive/v0.1.0.tar.gz \
     | tar -zxC /srv/www/achminup --strip-components=1
